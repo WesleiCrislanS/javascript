@@ -1,66 +1,30 @@
+/* 1. CONFIGURAÇÕES GERAIS E FUNDO */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    /* 1. ADICIONANDO A SUA IMAGEM DE FUNDO */
+    /* Certifique-se de que o nome da imagem no GitHub seja exatamente este: */
     background-image: url('fundo-tech.jpg');
-    /* Certifique-se de que o nome do arquivo está correto */
     background-size: cover;
-    /* Faz a imagem cobrir toda a tela */
     background-position: center;
-    /* Centraliza a imagem */
     background-attachment: fixed;
-    /* Efeito Parallax: o fundo fica parado enquanto você rola */
     color: white;
-    /* Cor padrão do texto para branco */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    /* Garante que o corpo ocupe toda a altura da tela */
+    overflow-x: hidden;
 }
 
-/* 2. CAMADA ESCURA DE SOBREPOSIÇÃO (OVERLAY) */
-/* Isso escurece um pouco a imagem para dar mais contraste ao texto */
+/* 2. CAMADA ESCURA (OVERLAY) - Para dar contraste ao texto */
 body::before {
     content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    /* Preto com 60% de transparência */
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); 
     z-index: -1;
-    /* Coloca a camada atrás do conteúdo */
-}
-/* --- RESPONSIVIDADE (MEDIA QUERY) --- */
-
-/* Quando a tela for menor que 768px (tablets e celulares) */
-@media (max-width: 768px) {
-    body {
-        /* Para o celular não tentar manter a imagem fixa ( fixed ), 
-           o que pode causar bugs no iOS. Mudamos para scroll. */
-        background-attachment: scroll; 
-    }
-
-    header h1 {
-        font-size: 2em; /* Diminui o título principal */
-    }
-
-    .container {
-        /* Diminuímos o mínimo do card de 300px para 260px 
-           para caber melhor em telas estreitas. */
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 20px;
-        padding: 10px; /* Mais "respiro" nas laterais */
-    }
-
-    .card {
-        padding: 15px; /* Cards ligeiramente menores internamente */
-    }
 }
 
-/* --- CABEÇALHO --- */
+/* 3. CABEÇALHO (HEADER) */
 header {
     text-align: center;
     padding: 60px 20px;
@@ -68,64 +32,52 @@ header {
 
 header h1 {
     margin: 0;
-    font-size: 2.8em;
-    color: #ff00ff;
-    /* Rosa neon para combinar com a imagem */
+    font-size: 2.8rem;
+    color: #ff00ff; /* Rosa Neon */
     text-shadow: 0 0 10px rgba(255, 0, 255, 0.7);
-    /* Efeito de brilho */
 }
 
 header p {
-    font-size: 1.2em;
+    font-size: 1.1rem;
     color: #ddd;
     margin-top: 10px;
 }
 
-/* --- CONTAINER DOS EXERCÍCIOS --- */
+/* 4. CONTAINER (GRID RESPONSIVO) */
 .container {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 20px;
     display: grid;
-    /* Responsividade: Mínimo de 300px por card, preenche o espaço */
+    /* Se houver espaço para 300px, fica lado a lado. Se não, empilha. */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 25px;
     flex-grow: 1;
-    /* Empurra o footer para o final */
 }
 
-/* --- ESTILO DO CARD (EFEITO VIDRO JATEADO) --- */
+/* 5. ESTILO DO CARD (GLASSMORPHISM) */
 .card {
-    background-color: rgba(255, 255, 255, 0.1);
-    /* Branco bem transparente */
-    backdrop-filter: blur(10px);
-    /* O SEGREDO: Embaça o fundo atrás do card */
-    -webkit-backdrop-filter: blur(10px);
-    /* Suporte para Safari */
+    background-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     padding: 25px;
     border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
-    /* Animação suave para o hover */
+    border: 1px solid rgba(255, 255, 255, 0.15);
     text-decoration: none;
-    /* Remove o sublinhado do link */
     color: white;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    justify-content: space-between; /* Empurra o botão para o final do card */
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-/* Efeito Hover no Card (ao passar o mouse) */
 .card:hover {
     transform: translateY(-8px);
-    /* Sobe o card */
-    background-color: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5);
-    border-color: #00ffff;
-    /* Borda fica ciano neon */
+    border-color: #00ffff; /* Ciano Neon ao passar o mouse */
+    background-color: rgba(255, 255, 255, 0.12);
 }
 
+/* Elementos internos do Card */
 .card-header {
     display: flex;
     align-items: center;
@@ -133,46 +85,46 @@ header p {
 }
 
 .card-icon {
-    font-size: 2em;
+    font-size: 2rem;
     margin-right: 15px;
 }
 
 .card-title {
-    font-size: 1.4em;
+    font-size: 1.3rem;
     font-weight: bold;
-    color: #00ffff;
-    /* Título em ciano neon */
+    color: #00ffff; /* Ciano Neon */
 }
 
 .card-desc {
-    font-size: 1em;
+    font-size: 0.95rem;
     color: #eee;
-    margin-bottom: 20px;
     line-height: 1.5;
+    margin-bottom: 25px;
 }
 
-/* Botão simulado dentro do card */
+/* 6. BOTÃO (ESTILO NEON) */
 .card-btn {
-    background-color: transparent;
     border: 2px solid #ff00ff;
     color: #ff00ff;
-    padding: 10px 20px;
+    padding: 10px;
     border-radius: 25px;
     text-align: center;
     font-weight: bold;
-    transition: background-color 0.3s;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
 }
 
 .card:hover .card-btn {
     background-color: #ff00ff;
     color: white;
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
 }
 
-/* --- RODAPÉ --- */
+/* 7. RODAPÉ (FOOTER) */
 footer {
     text-align: center;
     padding: 30px;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.5);
     margin-top: auto;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -180,15 +132,33 @@ footer {
 footer p {
     margin: 0;
     color: #aaa;
+    font-size: 0.9rem;
 }
 
 footer a {
     color: #ff00ff;
     text-decoration: none;
-    margin: 0 10px;
     font-weight: bold;
 }
 
 footer a:hover {
     text-decoration: underline;
+}
+
+/* 8. AJUSTES PARA CELULAR (A MÁGICA DA RESPONSIVIDADE) */
+@media (max-width: 650px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .container {
+        /* No celular, forçamos os cards a ocuparem a largura total */
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+
+    body {
+        /* Remove o fundo fixo no celular para evitar lentidão */
+        background-attachment: scroll;
+    }
 }
