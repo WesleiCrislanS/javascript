@@ -1,12 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Logint</title>
+    <title>Sistema de Login</title>
 </head>
+
 <body>
     <h1>Sistemas de Login</h1>
-    
+    <h2>Digite o Nome de Usuário</h2>
+    <input type="text" name="txtp" id="txtp">
+    <input type="button" value="Verificar" onclick="Verificar()">
+    <div id="res"></div>
+
+    <script>
+        function Verificar() {
+            var txtp = window.document.querySelector('input#txtp')
+            var res = window.document.querySelector('div#res')
+            var nomeU = txtp.value.toUpperCase()
+            if (nomeU == 'ADMIN') {
+                res.innerHTML = '<p style = "color: blue;"><strong>Acesso total liberado, Administrador!</strong></p>'
+            } else if (nomeU == 'WESLEI') {
+                res.innerHTML = '<p style= "color: blue;"><strong>Bem-vindo de volta, desenvolvedor!</strong></p>'
+            } else if (nomeU == '') {
+                res.innerHTML = '<p style= "color: orange; "><strong>Por favor, digite um nome.</strong></p>'
+            } else {
+                res.innerHTML = '<p style = "color: red; "><strong>Acesso Negado: Usuário não cadastrado.</strong></p>'
+            }
+        }
+    </script>
 </body>
+
 </html>
