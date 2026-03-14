@@ -3,7 +3,7 @@ body {
             margin: 0;
             padding: 0;
             /* 1. ADICIONANDO A SUA IMAGEM DE FUNDO */
-            background-image: url('fundo-tech.png'); /* Certifique-se de que o nome do arquivo está correto */
+            background-image: url('fundo-tech.jpg'); /* Certifique-se de que o nome do arquivo está correto */
             background-size: cover;    /* Faz a imagem cobrir toda a tela */
             background-position: center; /* Centraliza a imagem */
             background-attachment: fixed; /* Efeito Parallax: o fundo fica parado enquanto você rola */
