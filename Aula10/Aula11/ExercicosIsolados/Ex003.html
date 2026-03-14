@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boletim Escolar</title>
+</head>
+
+<body>
+    <h1>Calcular Média</h1>
+    <h2>Digite suas duas notas</h2>
+    <input type="number" name="n1" id="n1">
+    <br><input type="number" name="n2" id="n2"></br>
+    <input type="number" name="n3" id="n3">
+    <br><input type="number" name="n4" id="n4"></br>
+    <input type="button" value="Calcular" onclick="Calcular()">
+    <div id="res"></div>
+    <script>
+        function Calcular() {
+            var n1 = window.document.querySelector('input#n1')
+            var n2 = window.document.querySelector('input#n2')
+            var n3 = window.document.querySelector('input#n3')
+            var n4 = window.document.querySelector('input#n4')
+            var n1 = Number (n1.value)
+            var n2 = Number (n2.value)
+            var n3 = Number (n3.value)
+            var n4 = Number (n4.value)
+            var res = window.document.querySelector('div#res')
+            var media = (n1 + n2 + n3 + n4) / 4
+            res.innerHTML = `<p>Sua média foi <strong>${media.toFixed(1)}</strong></p>`
+            if (media >= 7) {
+                res.innerHTML += 'APROVADO!! Parabéns!!'
+            } else if (media >= 5) {
+                res.innerHTML += 'RECUPERAÇÃO!! Estude mais!!'
+            } else {
+                res.innerHTML += 'REPROVADO!!'
+            }
+        }
+    </script>
+</body>
+
+</html>

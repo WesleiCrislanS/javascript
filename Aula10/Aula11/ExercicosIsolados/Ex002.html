@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classificador de Atletas</title>
+</head>
+
+<body>
+    <h1>ACADEMIA DE JIU JITSU</h1>
+
+    <h2>Para prosseguir-mos preciamos que nos informe sua idade para identificarmos sua categoria</h2>
+
+    <h2>Digite sua idade :</h2>
+    <input type="number" name="idd" id="idd">
+    <input type="button" value="Identificar" onclick="Identificar()">
+    <div id="res"></div>
+    <script>
+        function Identificar() {
+            var idd = window.document.querySelector('input#idd')
+            var res = window.document.querySelector('div#res')
+            var idade = Number(idd.value)
+
+            if (idd.value.length == 0 || idade < 0) {
+                window.alert('[ERRO] Verifique os dados!')
+            } else
+                if (idade < 13) {
+                    res.innerHTML = '<p>Sua categoria é <strong>INFANTIL</strong></p>'
+                } else if (idade <= 17) {
+                    res.innerHTML = '<p>Sua categoria é <strong>JUVENIL</strong></p>'
+                } else {
+                    res.innerHTML = '<p>Sua categoria é <strong>ADULTO</strong></p>'
+                }
+        }
+    </script>
+</body>
+
+</html>

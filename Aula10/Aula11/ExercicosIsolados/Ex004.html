@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DETRAN 2.0 </title>
+</head>
+
+<body>
+    <h1>Sistema de Multas</h1>
+    Velocidade do carro: <input type="number" id="txtvel"> Km/h
+    <input type="button" value="Verificar" onclick="calcular()">
+    <div id="res"></div>
+
+    <script>
+        function calcular() {
+            var txtv = window.document.getElementById('txtvel')
+            var res = window.document.getElementById('res')
+            var vel = Number(txtv.value)
+            if (vel <= 80) {
+                res.innerHTML = '<p style="color: green;">Velocidade permitida. Boa viagem!</p>'
+            } else {
+                res.innerHTML = '<p style= "color: red;">MULTADO! Você ultrapassou o limite de 80 km/h</p>'
+                res.innerHTML += '<p><br><strong>Multa de R$ 150,00 aplicada</strong></br></p>'
+            } 
+        }
+    </script>
+</body>
+
+</html>

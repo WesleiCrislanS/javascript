@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validador de CUPONS</title>
+</head>
+
+<body>
+    <H1>VALIDE SEU CUPOM DE DESCONTO </H1>
+    <input type="text" name="txtc" id="txtc">
+    <input type="button" value="Validar" onclick="Validar()">
+    <div id="res"></div>
+    <script>
+        function Validar() {
+            var txtc = window.document.querySelector('input#txtc')
+            var res = window.document.querySelector('div#res')
+            var CUPOM = txtc.value.toUpperCase()
+            res.innerHTML += `<p>Seu CUPOM é ${CUPOM}</p>`
+            if (CUPOM == 'FELIZ20') {
+                res.innerHTML = '<p style="color: green ;">CUPOM APLICADO! Você ganhou <strong>20%</strong> de desconto</p>'
+            } else if (CUPOM == '') { 
+                res.innerHTML = '<p>PARABÉNS !! VOCÊ GANHOU <strong>90%</strong> DE DESCONTO POR DESCOBRIR ESTE CUPOM SECRETO !!</p>'
+            }else if (CUPOM == 'ESTUDANTE') {
+                res.innerHTML = '<p style="color: blue ;">CUPOM APLICADO! Você ganhou <strong>20%</strong> de desconto</p>'
+            } else if (CUPOM == 'FRETEGRATIS') {
+                res.innerHTML = '<p style="color: orange ;">CUPOM APLICADO! Você ganhou <strong>28%</strong> de desconto</p>'
+            } else {
+                res.innerHTML = '<p style="color: red ;">CUPOM NEGADO</p>'
+                res.innerHTML += `o CUPOM <strong>${CUPOM} </strong>verifique sua data de validade`
+            }
+        }
+    </script>
+</body>
+
+</html>
