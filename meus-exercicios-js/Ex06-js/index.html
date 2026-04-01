@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>teste</title>
+</head>
+
+<body>
+    <h1>teste</h1>
+    <h2>Digite a cor</h2>
+    <input type="text" name="cores" id="cores">
+    <input type="button" value="validar" onclick="validar()">
+    <div id="res"></div>
+    <script>
+        function validar() {
+            var cores = window.document.querySelector('input#cores')
+            var res = window.document.querySelector('div#res')
+            var cor = cores.value.toUpperCase()
+            switch (cor) {
+                case "YELLOW":
+                case "AMARELO":
+                    res.innerHTML = ('Voce escolheu amarelo')
+                    res.style.color = "gold"
+                    break
+                case "RED":
+                case "VERMELHO":
+                    res.innerHTML = ('Você escolheu vermelho')
+                    res.style.color = "red"
+                    break
+                case "VERDE":
+                case "GREEN":
+                    res.innerHTML = ('Você escolheu verde')
+                    res.style.color = "green"
+                    break
+                case "PURPLE":
+                case "ROXO":
+                    res.innerHTML = ('Você escolheu roxo')
+                    res.style.color = "purple"
+                    break
+                default:
+                    res.innerHTML = ('Escolhe uma cor ai')
+            }
+            cores.value = ''
+            cores.focus ()
+        }
+    </script>
+</body>
+
+</html>

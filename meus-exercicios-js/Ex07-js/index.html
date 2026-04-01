@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estações</title>
+</head>
+<body>
+    <h1>Estações do Ano</h1>
+    <h2>Digite O Mês</h2>
+    <input type="number" name="meses" id="meses">
+    <input type="button" value="Verificar" onclick="Verificar ()">
+    <div id="res"></div>
+    <script>
+        function Verificar () {
+            var mes = window.document.querySelector('input#meses')
+            var res = window.document.querySelector('div#res')
+            var Qest= Number (mes.value)
+            switch (Qest) {
+                case (12):
+                case (1):
+                case (2):
+                    res.innerHTML = ('A Estação Referente a Este Mês é o Verâo')
+                    res.innerHTML += ('🌞')
+                    res.style.color = "orange"
+                    break
+                case (3):
+                case (4):
+                case (5):
+                    res.innerHTML = ('A Estação Referente a Este Mês é o Outono')
+                    res.innerHTML += ('🍂')
+                    res.style.color = "red"
+                    break
+                case (6):
+                case (7):
+                case (8):
+                        res.innerHTML = ('A Estação Referente a Este Mês é o Inverno')
+                        res.innerHTML += ('❄️')
+                        res.style.color = "cyan"
+                    break
+                case (9):
+                case (10):
+                case (11):
+                            res.innerHTML = ('A Estação Referente a Este Mês é a Primavera')
+                            res.innerHTML += ('🌸')
+                            res.style.color = "pink"
+                    break 
+                default:
+                        res.innerHTML = ('!!!!!Digite um Mês Válido!!!!!')
+                    break
+            }
+            mes.focus ()
+            mes.value = ''
+        }
+    </script>
+</body>
+</html>

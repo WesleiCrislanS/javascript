@@ -4,7 +4,7 @@ body {
     margin: 0;
     padding: 0;
     /* Certifique-se de que o nome da imagem no GitHub seja exatamente este: */
-    background-image: url('fundo-tech.jpg');
+   
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
